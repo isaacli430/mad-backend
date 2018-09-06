@@ -13,7 +13,7 @@ gvars = GlobalVars()
 
 @app.route('/post', methods=["POST"])
 async def main(request):
-    return json({ "received": True, "message": request.args["message"][0] })
+    return json({ "received": True, "message": request.args})
 
 
 app.run(host="0.0.0.0", port=8000)
