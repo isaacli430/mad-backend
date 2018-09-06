@@ -1,5 +1,4 @@
-from sanic import Sanic
-from sanic.response import html
+from sanic import Sanic, response
 from sanic.blueprints import Blueprint
 import json
 
@@ -13,7 +12,7 @@ gvars = GlobalVars()
 
 @app.route('/post', methods=["POST"])
 async def main(request):
-    return json({ "received": True, "message": request.args})
+    return response.json({ "received": True, "args": request.raw_args})
 
 
 app.run(host="0.0.0.0", port=8000)
