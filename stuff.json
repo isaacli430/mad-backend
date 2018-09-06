@@ -1,0 +1,24 @@
+{
+    "12345": {
+        "attendance": [
+            {
+                "date": 0,
+                "students": {
+                    "li_0701": 0,
+                    "enoc": 0
+                }
+            },
+            {
+                "date": 1,
+                "students": {
+                    "li_0701": 1,
+                    "enoc": 0
+                }
+            }
+        ],
+        "students": [
+            "li_0701",
+            "enoc"
+        ]
+    }
+}
