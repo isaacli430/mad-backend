@@ -32,6 +32,10 @@ async def main(request):
             return gvars.e400
         curr_class = l_data[data["class"]]
 
+        # checks to see if student exists in the class
+        if data["student"] not in curr_class["students"]:
+            return gvars.e400
+
         # creates a datetime object for the class start time
         start_time = datetime.time(curr_class["start_time"]["hour"], curr_class["start_time"]["minute"], 0)
 
