@@ -39,6 +39,10 @@ async def main(request):
         # creates a datetime object for the class start time
         start_time = datetime.time(curr_class["start_time"]["hour"], curr_class["start_time"]["minute"], 0)
 
+        print(curr_time)
+        print(start_time)
+        print(curr_time - start_time)
+
 
     return response.json({"status": "OK", "code": 200, "args": request.raw_args})
 
