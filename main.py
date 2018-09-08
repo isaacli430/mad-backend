@@ -47,10 +47,10 @@ async def main(request):
         elif time_diff.seconds / 60 >= 10:
             atten_status = 2
 
-        print(atten_status)
+        
 
 
-    return response.json({"status": "OK", "code": 200, "args": request.raw_args})
+    return response.json({"status": "OK", "code": 200, "student_id": data["student"], "class_id": data["class"], "attendance_status": atten_status})
 
 
 app.run(host="0.0.0.0", port=8000)
