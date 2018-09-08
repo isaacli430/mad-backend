@@ -37,7 +37,7 @@ async def main(request):
             return gvars.e400
 
         # creates a datetime object for the class start time
-        start_time = datetime.time(curr_class["start_time"]["hour"], curr_class["start_time"]["minute"], 0)
+        start_time = datetime(curr_time.year, curr_time.month, curr_time.day, curr_class["start_time"]["hour"], curr_class["start_time"]["minute"], 0)
 
         print(curr_time)
         print(start_time)
