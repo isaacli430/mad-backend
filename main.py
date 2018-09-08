@@ -1,6 +1,6 @@
 from sanic import Sanic, response
 from sanic.blueprints import Blueprint
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 
 # initialize the app
@@ -42,7 +42,7 @@ async def main(request):
 
         time_diff = curr_time - start_time
         
-        if time_diff.days < 0 or time_diff == datetime(0, 0, 0, 0, 0, 0):
+        if time_diff.days < 0 or time_diff == timedelta(0, 0, 0, 0, 0, 0):
             atten_status = 0
         elif time_diff.minute >= 10:
             atten_status = 2
