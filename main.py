@@ -44,7 +44,7 @@ async def main(request):
         
         if time_diff.days < 0 or time_diff == timedelta(0, 0, 0, 0, 0, 0):
             atten_status = 0
-        elif time_diff.minute >= 10:
+        elif time_diff.minutes >= 10:
             atten_status = 2
 
         print(atten_status)
