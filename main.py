@@ -17,6 +17,7 @@ gvars = GlobalVars()
 async def main(request):
     curr_time = datetime.utcnow()
     data = request.raw_args
+    atten_status = 1
 
     # checks to see if there are student, time and class parameters
     for check in ["student", "class"]:     
@@ -39,9 +40,14 @@ async def main(request):
         # creates a datetime object for the class start time
         start_time = datetime(curr_time.year, curr_time.month, curr_time.day, curr_class["start_time"]["hour"], curr_class["start_time"]["minute"], 0)
 
-        print(curr_time)
-        print(start_time)
-        print(curr_time - start_time)
+        time_diff = curr_time - start_time
+        
+        if time_diff.day < 0 or time_diff == datetime(0, 0, 0, 0, 0, 0):
+            atten_status = 0
+        elif time_diff.minute >= 10:
+            atten_status = 2
+
+        print(atten_status)
 
 
     return response.json({"status": "OK", "code": 200, "args": request.raw_args})
